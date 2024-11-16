@@ -6,7 +6,7 @@
 
 <p align="center">
 <img alt="GitHub" src="https://img.shields.io/github/license/opendatamesh-initiative/odm-specification-schema-annotations">
-<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/opendatamesh-initiative/specification-schema-annotations">
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/opendatamesh-initiative/odm-specification-schema-annotations">
 <img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fdpds.opendatamesh.org%2F">
 </p>
 
