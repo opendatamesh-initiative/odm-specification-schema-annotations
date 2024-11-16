@@ -1,7 +1,9 @@
-The main external contributors for the XXX Specification (XXXS) are:
+The main external contributors to the Schema Annotation Specification (SAS) are:
 
 | Name | Employer | Contributions |
 | ---- | -------- | ---------------- |
-| John Doe    | BigCorp         |  Contributed to the first draft of the spec                |
+| Giulia Busnelli    | Blindata         |  Contributed to the first draft of the spec                |
+| Gabriele Fantini    | Blindata         |  Contributed to the first draft of the spec                |
+| Alfio Faro    | Blindata         |  Contributed to the first draft of the spec                |
 
-See the [Contribution Guide](CONTRIBUTING.md) for more information on how to become a XXXS Contributor
+See the [Contribution Guide](CONTRIBUTING.md) for more information on how to become a SAS Contributor
