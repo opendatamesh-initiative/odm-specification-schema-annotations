@@ -1,0 +1,43 @@
+{
+  "type": "record",
+  "name": "TransportOrder",
+  "namespace": "com.example.transport",
+  "fields": [
+    {
+      "name": "orderId",
+      "type": "int",
+      "doc": "Primary key, auto-incrementing order ID"
+    },
+    {
+      "name": "customerName",
+      "type": "string",
+      "doc": "Name of the customer placing the order"
+    },
+    {
+      "name": "orderDate",
+      "type": {
+        "type": "string",
+        "logicalType": "date"
+      },
+      "doc": "Date when the order was placed"
+    },
+    {
+      "name": "deliveryDate",
+      "type": {
+        "type": "string",
+        "logicalType": "date"
+      },
+      "doc": "Deadline for delivering the order"
+    },
+    {
+      "name": "destination",
+      "type": "string",
+      "doc": "Destination address for the delivery"
+    },
+    {
+      "name": "orderStatus",
+      "type": "string",
+      "doc": "Current status of the order (e.g., pending, shipped, delivered)"
+    }
+  ]
+}

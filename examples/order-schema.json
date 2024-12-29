@@ -1,0 +1,38 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "transportOrder",
+    "type": "object",
+    "properties": {
+      "orderId": {
+        "type": "integer",
+        "description": "Primary key, auto-incrementing order ID"
+      },
+      "customerName": {
+        "type": "string",
+        "maxLength": 255,
+        "description": "Name of the customer placing the order"
+      },
+      "orderDate": {
+        "type": "string",
+        "format": "date",
+        "description": "Date when the order was placed"
+      },
+      "deliveryDate": {
+        "type": "string",
+        "format": "date",
+        "description": "Deadline for delivering the order"
+      },
+      "destination": {
+        "type": "string",
+        "maxLength": 255,
+        "description": "Destination address for the delivery"
+      },
+      "orderStatus": {
+        "type": "string",
+        "maxLength": 255,
+        "description": "Current status of the order (e.g., pending, shipped, delivered)"
+      }
+    },
+    "required": ["orderId", "customerName", "orderDate", "deliveryDate", "destination", "orderStatus"]
+  }
+  

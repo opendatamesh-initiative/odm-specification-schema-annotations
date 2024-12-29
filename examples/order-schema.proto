@@ -1,0 +1,10 @@
+package transport;
+
+message TransportOrder {
+  int32 orderId = 1;          // Primary key, auto-incrementing order ID
+  string customerName = 2;    // Name of the customer placing the order
+  string orderDate = 3;       // Date when the order was placed (formatted as YYYY-MM-DD)
+  string deliveryDate = 4;    // Deadline for delivering the order (formatted as YYYY-MM-DD)
+  string destination = 5;     // Destination address for the delivery
+  string orderStatus = 6;     // Current status of the order (e.g., pending, shipped, delivered)
+}
