@@ -31,7 +31,7 @@ CREATE TABLE TRIP (
 );
 
 -- Table for Legs (association between Transport Units and Trips)
-CREATE TABLE Leg (
+CREATE TABLE LEG (
     UNIT_ID INT NOT NULL,
     TRIP_ID INT NOT NULL,
     LEG_SEQUENCE INT NOT NULL,
