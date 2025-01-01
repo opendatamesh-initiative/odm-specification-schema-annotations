@@ -18,18 +18,11 @@ https://json-schema.org/draft/2020-12/json-schema-core#name-annotations
     "title": "transportOrder",
     "type": "object",
 
-    "sas.dialects": {
-        "dpds": {
-            "vocabulary": {
-                "https://dpds.opendatamesh.org/specifications/sas/1.0.0/#datastore": false,
-                "https://dpds.opendatamesh.org/specifications/sas/1.0.0/#semantics": false
-            }
-        }, 
-        "bitol": {
-            "vocabulary": {
-                "https://bitol-io.github.io/open-data-contract-standard/v3.0.0/#quality": false
-            }
-        }
+
+    "sasDialects": {
+      "https://dpds.opendatamesh.org/specifications/sas/1.0.0/#datastore": {"prefix":"dpds", "required":false},
+      "https://dpds.opendatamesh.org/specifications/sas/1.0.0/#semantics": {"prefix":"dpds", "required":false},
+      "https://bitol-io.github.io/open-data-contract-standard/v3.0.0/#quality": {"prefix":"bitol","required":false}
     },
 
     "dpds.physicalType": "TABLE",
