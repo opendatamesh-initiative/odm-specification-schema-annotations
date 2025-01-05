@@ -1,3 +1,7 @@
+A dataset is a structured collection of data. Each entry within the dataset adheres to the same structure, which is referred to as its **data model**. The data model defines how data within each entry are arranged and related. 
+
+A schema is a formal and machine readable definition of a data model. 
+
 ## JSON Schema
 
 JSON Schema is a declarative language for annotating and validating JSON documents' structure, constraints, and data types. It provides a way to standardize and define expectations for JSON data.
