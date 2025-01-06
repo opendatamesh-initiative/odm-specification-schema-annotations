@@ -12,14 +12,10 @@ SAS (Standard Annotation Schema) defines a framework for annotating schemas usin
 
 ## Key Concepts
 
-### Standards and Specifications
-- **Standard**: A shared set of rules used to describe an entity or process.
-- **Standard Specification**: A formal description of these rules, often versioned.
-
 ### Schemas and Related Terms
 - **Schema**: A machine-readable structure describing dataset organization.
 - **Schema Annotation**: Metadata embedded in the schema for additional context.
-- **SAS Specification**: A defined set of annotations used across schemas.
+- **Schema Annotation Specification**: A defined set of annotations used across schemas.
 
 ### Vocabulary and Keywords
 - **Vocabulary**: A collection of keyword definitions identified by a unique URI.
@@ -164,7 +160,7 @@ Here’s an example of a fully annotated JSON Schema:
 2. **Use Provided Examples**: Start annotating schemas with JSON, Avro, or Protobuf.
 3. **Reference Dialects**: Utilize existing vocabularies for interoperability.
 
-For more details, refer to the full [SAS Specification]([#specification](https://github.com/opendatamesh-initiative/odm-specification-schema-annotations/blob/main/versions/1.0.0-DRAFT.md)).
+For more details, refer to the full [SAS Specification](https://github.com/opendatamesh-initiative/odm-specification-schema-annotations/blob/main/versions/1.0.0-DRAFT.md).
 
 ---
 
