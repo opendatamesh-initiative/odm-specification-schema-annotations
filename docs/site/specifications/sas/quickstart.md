@@ -2,6 +2,8 @@ A dataset is a structured collection of data. Each entry within the dataset adhe
 
 A schema is a formal and machine readable definition of a data model. 
 
+To facilitate re-use, keywords can be organized into vocabularies. A vocabulary consists of a list of keywords, together with their syntax and semantics. A dialect is defined as a set of vocabularies and their required support identified in a meta-schema
+
 ## JSON Schema
 
 JSON Schema is a declarative language for annotating and validating JSON documents' structure, constraints, and data types. It provides a way to standardize and define expectations for JSON data.
