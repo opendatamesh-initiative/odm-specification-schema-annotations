@@ -1,6 +1,3 @@
-Here’s a draft quickstart page for your specification in markdown format:
-
-```markdown
 # Quickstart Guide: Standard Annotation Schema (SAS)
 
 This guide provides a concise overview of the SAS specification, helping you get started quickly.
