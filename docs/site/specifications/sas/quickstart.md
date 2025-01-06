@@ -1,97 +1,174 @@
-A dataset is a structured collection of data. Each entry within the dataset adheres to the same structure, which is referred to as its **data model**. The data model defines how data within each entry are arranged and related. 
+Here’s a draft quickstart page for your specification in markdown format:
 
-A schema is a formal and machine readable definition of a data model. 
+```markdown
+# Quickstart Guide: Standard Annotation Schema (SAS)
 
-To facilitate re-use, keywords can be organized into vocabularies. A vocabulary consists of a list of keywords, together with their syntax and semantics. A dialect is defined as a set of vocabularies and their required support identified in a meta-schema
+This guide provides a concise overview of the SAS specification, helping you get started quickly.
 
-## JSON Schema
+---
 
-JSON Schema is a declarative language for annotating and validating JSON documents' structure, constraints, and data types. It provides a way to standardize and define expectations for JSON data.
+## What is SAS?
 
-Media Type: "application/schema+json"
+SAS (Standard Annotation Schema) defines a framework for annotating schemas using a shared set of keywords. These annotations enrich schema definitions, enabling enhanced interoperability, validation, and clarity for datasets described in different Schema Definition Languages (SDLs).
 
-Home page: [https://json-schema.org/](https://json-schema.org/)
+---
 
-Spec: [https://json-schema.org/draft/2020-12/json-schema-core](https://json-schema.org/draft/2020-12/json-schema-core)
+## Key Concepts
 
-Annotation: from spec... *"Unrecognized individual keywords simply have their values collected as annotations, while the behavior with respect to an unrecognized vocabulary can be controlled when declaring which vocabularies are in use."* and again ... *"A JSON Schema MAY contain properties which are not schema keywords. Unknown keywords SHOULD be treated as annotations, where the value of the keyword is the value of the annotation."*
+### Standards and Specifications
+- **Standard**: A shared set of rules used to describe an entity or process.
+- **Standard Specification**: A formal description of these rules, often versioned.
 
-https://json-schema.org/draft/2020-12/json-schema-core#name-annotations
+### Schemas and Related Terms
+- **Schema**: A machine-readable structure describing dataset organization.
+- **Schema Annotation**: Metadata embedded in the schema for additional context.
+- **SAS Specification**: A defined set of annotations used across schemas.
+
+### Vocabulary and Keywords
+- **Vocabulary**: A collection of keyword definitions identified by a unique URI.
+- **Keyword**: An alphanumeric string used to annotate schema elements.
+
+---
+
+## Annotating a Schema
+
+### Using Keywords
+Keywords are central to schema annotations. Here’s an example of a JSON Schema annotated with SAS:
 
 ```json
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "transportOrder",
-    "type": "object",
-
-
-    "sasDialects": {
-      "https://dpds.opendatamesh.org/specifications/sas/1.0.0/#datastore": {"prefix":"dpds", "required":false},
-      "https://dpds.opendatamesh.org/specifications/sas/1.0.0/#semantics": {"prefix":"dpds", "required":false},
-      "https://bitol-io.github.io/open-data-contract-standard/v3.0.0/#quality": {"prefix":"bitol","required":false}
-    },
-
-    "dpds.physicalType": "TABLE",
-    "dpds.physicalName": "TRANSPORT_ORDER",
-    "dpds.context": {
-        "base": "https://schema.org",
-        "type": "[Movie]",
-        "mappings": {
-            "movieId": null,
-            "directorName": "director[Person].name",
-            "directorCountryName": "director[Person].country[Country].name",
-            "actors": "actor[Person].name",
-            "copyright": {
-                "type": "copyrightHolder[Organization]",
-                "mappings": {
-                    "organizationId": null,
-                    "email": "contactPoint[ContactPoint].mail"
-                }
-            }  
-        }
-    },
-
-    "properties": {
-      "orderId": {
-        "type": "integer",
-        "description": "Primary key, auto-incrementing order ID",
-
-        "dpds.physicalType": "INT",
-        "dpds.physicalName": "ORDER_ID"
-      },
-      "customerName": {
-        "type": "string",
-        "maxLength": 255,
-        "description": "Name of the customer placing the order",
-
-        "dpds.physicalType": "VARCHAR(255)",
-        "dpds.physicalName": "CUSTOMER_NAME",
-        "bitol.quality": {
-            "type": "library",
-            "rule": "notNull",
-            "mustBeEqaul": 0,
-            "unit": "rows"
-        }
+  "type": "object",
+  "sas": "1.0.0",
+  "sasDialect": {
+    "https://example.com/custom-vocabulary": { "prefix": "custom.", "required": false }
+  },
+  "custom.author": "Andrea",
+  "properties": {
+    "temperatures": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "custom.unit": "Celsius"
       }
-    },
-    "required": ["orderId", "customerName"]
+    }
+  }
 }
 ```
 
-## YAML Schema
+### Using Dialects
+Dialects define which vocabularies are in use. Example:
 
-Spec:
+```json
+{
+  "sasDialect": {
+    "https://example.com/vocabulary-1": { "prefix": "v1.", "required": false },
+    "https://example.com/vocabulary-2": { "prefix": "v2.", "required": true }
+  }
+}
+```
 
-Annotation: 
+---
 
-## AVRO Schema
+## Supported Schema Definition Languages (SDLs)
 
-Spec:
+### JSON Schema
+Annotations are any unrecognized keywords.
 
-Annotation: 
+Example:
+```json
+{
+  "type": "object",
+  "author": "Andrea",
+  "properties": {
+    "sensor": { "type": "string" }
+  }
+}
+```
 
-## PROTOBUF Schema
+### Avro
+Annotations are treated as metadata.
 
-Spec:
+Example:
+```json
+{
+  "type": "record",
+  "name": "TemperatureData",
+  "author": "Andrea",
+  "fields": [
+    { "name": "temperature", "type": "double", "unit": "Celsius" }
+  ]
+}
+```
 
-Annotation: 
+### Protobuf
+Annotations use custom options.
+
+Example:
+```proto
+syntax = "proto3";
+import "custom-options.proto";
+
+message Data {
+  option (author) = "Andrea";
+  repeated double temperatures = 1 [(unit) = "Celsius"];
+}
+```
+
+---
+
+## Defining Keywords
+
+Each keyword should include:
+- **Name**: The keyword itself (e.g., `author`).
+- **Value Type**: e.g., `string`, `number`.
+- **Description**: Context or intended use.
+- **Best Practices**: Recommendations for use.
+
+---
+
+## Best Practices
+
+- **Use Alphanumeric Keywords**: Avoid special characters unless necessary.
+- **Define Dialects**: Specify vocabularies in the `sasDialect` keyword.
+- **Validate and Test**: Use SDL-specific tools to verify annotations.
+
+---
+
+## Example: Complete Annotated Schema
+
+Here’s an example of a fully annotated JSON Schema:
+
+```json
+{
+  "type": "object",
+  "sas": "1.0.0",
+  "sasDialect": {
+    "https://example.com/vocabulary": { "prefix": "vocab.", "required": false }
+  },
+  "vocab.author": "Andrea",
+  "properties": {
+    "sensor": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "location": { "type": "string" }
+      }
+    }
+  },
+  "required": ["sensor"]
+}
+```
+
+---
+
+## Next Steps
+
+1. **Define Custom Keywords**: Extend SAS for your use case.
+2. **Use Provided Examples**: Start annotating schemas with JSON, Avro, or Protobuf.
+3. **Reference Dialects**: Utilize existing vocabularies for interoperability.
+
+For more details, refer to the full [SAS Specification]([#specification](https://github.com/opendatamesh-initiative/odm-specification-schema-annotations/blob/main/versions/1.0.0-DRAFT.md)).
+
+---
+
+Happy annotating!
