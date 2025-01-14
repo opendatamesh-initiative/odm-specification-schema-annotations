@@ -1,12 +1,12 @@
-# Quickstart Guide: Standard Annotation Schema (SAS)
+# Annotation Schema Specification Quickstart
 
-This guide provides a concise overview of the SAS specification, helping you get started quickly.
+This guide provides a concise overview of the Annotation Schema Specification (SAS), helping you get started quickly.
 
 ---
 
 ## What is SAS?
 
-SAS (Standard Annotation Schema) defines a framework for annotating schemas using a shared set of keywords. These annotations enrich schema definitions, enabling enhanced interoperability, validation, and clarity for datasets described in different Schema Definition Languages (SDLs).
+Standard Annotation Schema (SAS) defines a framework for annotating schemas using a shared set of keywords. These annotations enrich schema definitions, enabling enhanced interoperability, validation, and clarity for datasets described in different Schema Definition Languages (SDLs).
 
 ---
 
@@ -17,9 +17,10 @@ SAS (Standard Annotation Schema) defines a framework for annotating schemas usin
 - **Schema Annotation**: Metadata embedded in the schema for additional context.
 - **Schema Annotation Specification**: A defined set of annotations used across schemas.
 
-### Vocabulary and Keywords
-- **Vocabulary**: A collection of keyword definitions identified by a unique URI.
+### Keywords and Vocabulary
 - **Keyword**: An alphanumeric string used to annotate schema elements.
+- **Vocabulary**: A collection of keyword definitions identified by a unique URI.
+
 
 ---
 
@@ -112,6 +113,7 @@ message Data {
 ## Defining Keywords
 
 Each keyword should include:
+
 - **Name**: The keyword itself (e.g., `author`).
 - **Value Type**: e.g., `string`, `number`.
 - **Description**: Context or intended use.
